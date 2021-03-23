@@ -12,7 +12,7 @@ import java.util.List;
 
 @Entity
 @NamedQueries({
-
+    @NamedQuery(name = "Project.findAll", query = "select p from Project as p")
 })
 @Table(name = "PROJECT")
 @Getter
