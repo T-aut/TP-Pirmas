@@ -32,9 +32,10 @@ public class Project implements Serializable {
     @Column(name = "START_DATE")
     private Date startDate;
 
-    @Column(name = "END_DATE")
+    @Column(name = "END_DATE") // FR[2.2
     private Date endDate;
 
+    // FR[2.1]
     @ManyToMany(mappedBy = "projects")
     private List<User> users;
 }

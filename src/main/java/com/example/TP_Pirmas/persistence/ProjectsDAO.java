@@ -10,7 +10,7 @@ import java.util.List;
 public class ProjectsDAO {
 
     @Inject
-    private EntityManager em;
+    private EntityManager em; // FR[3.3.1]
 
     public List<Project> getAllProjects() {
         return em.createNamedQuery("Project.findAll", Project.class).getResultList();

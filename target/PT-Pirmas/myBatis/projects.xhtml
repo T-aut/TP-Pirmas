@@ -9,7 +9,7 @@
     <h2>Projects:</h2>
     <ol>
         <ui:repeat value="#{projectsMyBatis.allProjects}" var="project">
-            <li><h:link value="#{project.name}" outcome="users?projectId=#{project.id}" /></li>
+            <li><h:link value="#{project.name}" outcome="myBatis/users?projectId=#{project.id}" /></li>
         </ui:repeat>
     </ol>
     <h:form>

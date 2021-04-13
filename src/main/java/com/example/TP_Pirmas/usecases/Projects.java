@@ -11,7 +11,7 @@ import javax.inject.Inject;
 import javax.transaction.Transactional;
 import java.util.List;
 
-@Model
+@Model // FR[3.2]
 public class Projects {
 
     @Inject
@@ -20,7 +20,7 @@ public class Projects {
     @Getter
     private List<Project> allProjects;
 
-    @Getter @Setter
+    @Getter @Setter // FR[3.1.2]
     private Project projectToCreate = new Project();
 
     @PostConstruct
@@ -28,6 +28,7 @@ public class Projects {
         loadAllProjects();
     }
 
+    // FR[3.5]
     @Transactional
     public String createProject() {
         projectsDAO.persist(projectToCreate);
