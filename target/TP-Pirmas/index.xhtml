@@ -6,16 +6,18 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head/>
 <h:body>
+    <!-- FR[3.1.1] -->
     <h2>Projects:</h2>
     <ol>
-        <ui:repeat value="#{projectsMyBatis.allProjects}" var="project">
+        <ui:repeat value="#{projects.allProjects}" var="project">
             <li><h:link value="#{project.name}" outcome="users?projectId=#{project.id}" /></li>
         </ui:repeat>
     </ol>
+    <!-- FR[3.1.2] -->
     <h:form>
-        <h:inputText value="#{projectsMyBatis.projectToCreate.name}" required="true" />
-        <h:commandButton value="Add new project" action="#{projectsMyBatis.createProject}" />
+        <h:inputText value="#{projects.projectToCreate.name}" required="true" />
+        <h:commandButton value="Add new project" action="#{projects.createProject}" />
     </h:form>
-    <h:link outcome="/index" value="Back to JPA"/>
+    <h:link outcome="myBatis/projects" value="MyBatis implementation"/>
 </h:body>
 </html>

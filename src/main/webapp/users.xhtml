@@ -12,7 +12,7 @@
     <ol>
         <ui:repeat value="#{projectWorkers.project.users}" var="user">
             <li>
-                <h:link value="#{user.username} #{user.email}" />
+                <h:link value="#{user.username} #{user.email}" outcome="userRoles?workerId=#{user.id}" />
             </li>
         </ui:repeat>
     </ol>

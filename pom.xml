@@ -7,7 +7,6 @@
     <groupId>com.example</groupId>
     <artifactId>TP-Pirmas</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>TP-Pirmas</name>
     <packaging>war</packaging>
 
     <properties>
@@ -69,7 +68,7 @@
 
 
     <build>
-        <finalName>PT-Pirmas</finalName>
+        <finalName>TP-Pirmas</finalName>
         <pluginManagement>
             <plugins>
                 <plugin>

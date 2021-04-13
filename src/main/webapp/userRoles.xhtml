@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head/>
+<h:body>
+    <h2>Worker <b>#{workerRoles.user.username}</b>:</h2>
+    <ol>
+        <ui:repeat value="#{workerRoles.user.roles}" var="role">
+            <li><h:link value="#{role.displayName}"/></li>
+        </ui:repeat>
+    </ol>
+    <h:form>
+        <h:inputText a:placeholder="Role name" value="#{workerRoles.roleToCreate.displayName}" required="true" />
+        <h:commandButton value="Add a new role for this user" action="#{workerRoles.createRole}">
+            <f:param name="workerId" value="#{workerRoles.user.id}"/>
+        </h:commandButton>
+    </h:form>
+    <h:form>
+        <h:inputText a:placeholder="Existing project Id" value="#{workerRoles.projectIdToAssign}" required="true" />
+        <h:commandButton value="Set user to existing project" action="#{workerRoles.assignToProject}">
+            <f:param name="workerId" value="#{workerRoles.user.id}"/>
+        </h:commandButton>
+    </h:form>
+</h:body>
+</html>

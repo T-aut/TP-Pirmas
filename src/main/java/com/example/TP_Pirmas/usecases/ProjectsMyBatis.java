@@ -31,7 +31,7 @@ public class ProjectsMyBatis {
     @Transactional
     public String createProject() {
         projectsDAO.insert(projectToCreate);
-        return "index?faces-redirect=true";
+        return "projects?faces-redirect=true";
     }
 
     private void loadAllProjects() {
