@@ -21,7 +21,9 @@
         </h:commandButton>
     </h:form>
     <h:form>
-        <h:inputText a:placeholder="Existing project Id" value="#{workerRoles.projectIdToAssign}" required="true" />
+        <h:selectOneMenu value = "#{workerRoles.projectIdToAssign}">
+            <f:selectItems value="#{projects.allProjects}" var="project" itemValue="#{project.id}" itemLabel="#{project.name}" />
+        </h:selectOneMenu>
         <h:commandButton value="Set user to existing project" action="#{workerRoles.assignToProject}">
             <f:param name="workerId" value="#{workerRoles.user.id}"/>
         </h:commandButton>
