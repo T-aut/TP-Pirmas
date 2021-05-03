@@ -5,8 +5,6 @@ import lombok.Setter;
 
 @Getter @Setter
 public class ProjectDTO {
-    private Integer id;
-
     private String name;
 
     private String startDate;

@@ -38,4 +38,7 @@ public class Project implements Serializable {
     // FR[2.1]
     @ManyToMany(mappedBy = "projects")
     private List<User> users;
+
+    @Version
+    private Integer version;
 }

@@ -27,4 +27,6 @@ public class ProjectsDAO {
     public Project update(Project project){
         return em.merge(project);
     }
+
+    public void flush() { em.flush();}
 }
