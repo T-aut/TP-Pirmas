@@ -2,12 +2,14 @@ package com.example.TP_Pirmas.usecases;
 
 import com.example.TP_Pirmas.entities.Project;
 import com.example.TP_Pirmas.entities.User;
+import com.example.TP_Pirmas.persistence.IProjectDAO;
 import com.example.TP_Pirmas.persistence.ProjectsDAO;
 import com.example.TP_Pirmas.persistence.UsersDAO;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Model;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -17,12 +19,14 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 @Model
 public class ProjectWorkers implements Serializable {
 
     @Inject
-    private ProjectsDAO projectsDAO;
+    private IProjectDAO projectsDAO;
 
     @Inject
     private UsersDAO usersDAO;
@@ -45,9 +49,10 @@ public class ProjectWorkers implements Serializable {
     @Transactional
     public String createUser() {
         List<Project> projects = new ArrayList<>();
-        projects.add(this.project);
+        projects.add(project);
         userToCreate.setProjects(projects);
-        usersDAO.persist(this.userToCreate);
+        usersDAO.persist(userToCreate);
+
         return "users?faces-redirect=true&projectId=" + this.project.getId();
     }
 }

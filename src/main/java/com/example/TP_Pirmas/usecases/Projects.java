@@ -1,7 +1,7 @@
 package com.example.TP_Pirmas.usecases;
 
 import com.example.TP_Pirmas.entities.Project;
-import com.example.TP_Pirmas.persistence.ProjectsDAO;
+import com.example.TP_Pirmas.persistence.IProjectDAO;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,7 +15,7 @@ import java.util.List;
 public class Projects {
 
     @Inject
-    private ProjectsDAO projectsDAO;
+    private IProjectDAO projectsDAO;
 
     @Getter
     private List<Project> allProjects;

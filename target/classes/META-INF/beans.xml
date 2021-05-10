@@ -4,4 +4,13 @@
        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
                       http://xmlns.jcp.org/xml/ns/javaee/beans_2_0.xsd"
        bean-discovery-mode="all">
+<!--    <alternatives>-->
+<!--        <class>com.example.TP_Pirmas.persistence.TestProjectsDAO</class>-->
+<!--    </alternatives>-->
+    <interceptors>
+        <class>com.example.TP_Pirmas.interceptors.MyMethodLogger</class>
+    </interceptors>
+    <decorators>
+        <class>com.example.TP_Pirmas.usecases.decorator.UserCreatorDecorator</class>
+    </decorators>
 </beans>

@@ -19,8 +19,9 @@
     <h:form>
         <h:inputText a:placeholder="Username" value="#{projectWorkers.userToCreate.username}" required="true" />
         <h:inputText a:placeholder="Email" value="#{projectWorkers.userToCreate.email}" required="true" />
-        <h:commandButton value="Add a new user for this project" action="#{projectWorkers.createUser}">
+        <h:commandButton value="#{buttonCooldown.userCreationStatus}" disabled="#{buttonCooldown.userCreatorRunning}" action="#{projectWorkers.createUser}">
             <f:param name="projectId" value="#{projectWorkers.project.id}"/>
+            <f:actionListener binding="#{buttonCooldown.startWork()}"/>
         </h:commandButton>
     </h:form>
     <h:link outcome="index" value="Back to Projects"/>

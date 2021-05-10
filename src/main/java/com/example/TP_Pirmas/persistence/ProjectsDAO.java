@@ -2,12 +2,14 @@ package com.example.TP_Pirmas.persistence;
 
 import com.example.TP_Pirmas.entities.Project;
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import java.util.List;
 
 @ApplicationScoped
-public class ProjectsDAO {
+@Default
+public class ProjectsDAO implements IProjectDAO {
 
     @Inject
     private EntityManager em; // FR[3.3.1]
