@@ -63,14 +63,14 @@ public class ProjectsController {
 
             projectsDAO.update(existingProject);
             if (invokeOLE != null && invokeOLE) {
+                Thread.sleep(7000);
                 projectsDAO.flush();
-                projectsDAO.persist(existingProject);
             }
 
             return Response.ok().build();
         } catch (OptimisticLockException ole) {
             return Response.status(Response.Status.CONFLICT).build();
-        } catch (ParseException pe) {
+        } catch (ParseException | InterruptedException pe) {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
     }
